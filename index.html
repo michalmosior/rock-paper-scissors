@@ -11,19 +11,31 @@
 			sizes="32x32"
 			href="./images/favicon-32x32.png"
 		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="css/main.css" class="style" />
 		<title>Frontend Mentor | Rock, Paper, Scissors</title>
-
-		Score Rules You Picked The House Picked You Win You Lose Play Again
 	</head>
 	<body>
-		<header class="header">
-      <div class="container">
-        <div class="header__title">
-          <img src="../img/logo.svg" alt="Rock Paper Scissors logo">
-        </div>
-      </div>
-    </header>
+		<div class="container">
+			<div class="logo">
+				<img
+					src="../img/logo.svg"
+					alt="Rock Paper Scissors logo"
+					class="logo__img"
+				/>
+			</div>
+			<div class="score-panel">
+				<p class="score-panel__txt">Score</p>
+			</div>
+		</div>
+
+		<div class="game-field"></div>
+		<button class="rules"></button>
 		<div class="attribution">
 			Challenge by
 			<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
