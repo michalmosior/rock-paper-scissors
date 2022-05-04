@@ -4,10 +4,90 @@
 	box-sizing: border-box;
 	font-family: 'Barlow Semi Condensed', sans-serif;
 }
+body {
+	background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+	background-repeat: no-repeat;
+	height: 100vh;
+	padding: 5%;
+}
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 .attribution {
+	margin-top: 5vh;
 	font-size: 11px;
 	text-align: center;
 }
 .attribution a {
 	color: hsl(228, 45%, 44%);
+}
+.header {
+	display: flex;
+	flex-direction: row;
+	padding: 3%;
+	justify-content: space-between;
+	align-items: center;
+	border: solid 3px rgb(96, 110, 133);
+	border-radius: 10px;
+	width: 100%;
+}
+.logo {
+	&__img {
+		width: 70%;
+	}
+}
+.score-panel {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: #ddd;
+	width: 25%;
+	border-radius: 5px;
+
+	&__txt {
+		color: rgb(33, 55, 153);
+		text-transform: uppercase;
+		font-size: 0.81rem;
+		font-weight: 600;
+		margin-top: 0.2rem;
+	}
+	&__score {
+		font-size: 3rem;
+		font-weight: 700;
+		color: hsl(229, 25%, 31%);
+	}
+}
+.game-field {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 25%;
+	justify-content: center;
+	height: 65vh;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-image: url('../img/bg-triangle.svg');
+	width: 100%;
+	padding: 10% 5% 10% 5%;
+	z-index: 0;
+}
+
+.rules {
+	width: 30%;
+	text-transform: uppercase;
+	border: solid 2px rgb(96, 110, 133);
+	border-radius: 10px;
+	padding: 0.5rem 1rem;
+	background-color: transparent;
+	color: #ddd;
+}
+.btn {
+	border: none;
+	border-radius: 50%;
+	width: 6rem;
+	height: 6rem;
 }

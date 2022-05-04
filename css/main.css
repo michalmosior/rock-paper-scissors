@@ -6,12 +6,134 @@
   font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
+body {
+  background: -webkit-gradient(linear, left top, left bottom, from(#1f3756), to(#141539));
+  background: linear-gradient(#1f3756, #141539);
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding: 5%;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .attribution {
+  margin-top: 5vh;
   font-size: 11px;
   text-align: center;
 }
 
 .attribution a {
   color: #3e52a3;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 3%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: solid 3px #606e85;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.logo__img {
+  width: 70%;
+}
+
+.score-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ddd;
+  width: 25%;
+  border-radius: 5px;
+}
+
+.score-panel__txt {
+  color: #213799;
+  text-transform: uppercase;
+  font-size: 0.81rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+.score-panel__score {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #3b4363;
+}
+
+.game-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 25%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 65vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("../img/bg-triangle.svg");
+  width: 100%;
+  padding: 10% 5% 10% 5%;
+  z-index: 0;
+}
+
+.rules {
+  width: 30%;
+  text-transform: uppercase;
+  border: solid 2px #606e85;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: #ddd;
+}
+
+.btn {
+  border: none;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
 }
 /*# sourceMappingURL=main.css.map */

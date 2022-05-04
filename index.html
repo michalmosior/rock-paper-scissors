@@ -22,25 +22,38 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="logo">
-				<img
-					src="../img/logo.svg"
-					alt="Rock Paper Scissors logo"
-					class="logo__img"
-				/>
+			<div class="header">
+				<div class="logo">
+					<img
+						src="../img/logo.svg"
+						alt="Rock Paper Scissors logo"
+						class="logo__img"
+					/>
+				</div>
+				<div class="score-panel">
+					<p class="score-panel__txt">Score</p>
+					<p class="score-panel__score">12</p>
+				</div>
 			</div>
-			<div class="score-panel">
-				<p class="score-panel__txt">Score</p>
-			</div>
-		</div>
 
-		<div class="game-field"></div>
-		<button class="rules"></button>
-		<div class="attribution">
-			Challenge by
-			<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-				>Frontend Mentor</a
-			>. Coded by <a href="#">Your Name Here</a>.
+			<div class="game-field">
+				<button class="paper btn">
+					<img src="./img/icon-paper.svg" alt="" class="btn__img" />
+				</button>
+				<button class="scissors btn">
+					<img src="./img/icon-scissors.svg" alt="" />
+				</button>
+				<button class="rock btn">
+					<img src="./img/icon-rock.svg" alt="" />
+				</button>
+			</div>
+			<button class="rules">Rules</button>
+			<div class="attribution">
+				Challenge by
+				<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+					>Frontend Mentor</a
+				>. Coded by <a href="#">Your Name Here</a>.
+			</div>
 		</div>
 	</body>
 </html>
