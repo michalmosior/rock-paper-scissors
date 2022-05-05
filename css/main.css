@@ -16,6 +16,70 @@ body {
   overflow: hidden;
 }
 
+.option-container {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#1f3756), to(#141539));
+  background: linear-gradient(#1f3756, #141539);
+  border-radius: 15px;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  z-index: 3;
+}
+
+.option-container__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 150px;
+  height: 150px;
+  background-color: transparent;
+  border: solid 3px #606e85;
+  border-radius: 25px;
+  color: #ddd;
+  text-transform: uppercase;
+  -webkit-transition: color 0.3s, border 0.3s;
+  transition: color 0.3s, border 0.3s;
+  cursor: pointer;
+}
+
+.option-container__btn:hover {
+  color: #bab5b5;
+  border: solid 3px #ddd;
+}
+
+.material-icons {
+  font-size: 5rem;
+}
+
+.started {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
