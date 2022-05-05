@@ -107,7 +107,7 @@ body {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 25%;
+  gap: 10%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -116,7 +116,8 @@ body {
   background-position: center center;
   background-image: url("../img/bg-triangle.svg");
   width: 100%;
-  padding: 10% 5% 10% 5%;
+  max-width: 550px;
+  padding: 10% 0 10% 0;
   z-index: 0;
 }
 
@@ -130,10 +131,64 @@ body {
   color: #ddd;
 }
 
-.btn {
+.button {
   border: none;
   border-radius: 50%;
-  width: 6rem;
-  height: 6rem;
+  width: 6.5rem;
+  height: 6.5rem;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.button:hover {
+  -webkit-transform: rotate(360deg) scale(1.05);
+          transform: rotate(360deg) scale(1.05);
+}
+
+.paper,
+.scissors,
+.rock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.paper {
+  background: -webkit-gradient(linear, left top, left bottom, from(#4865f4), to(#5671f5));
+  background: linear-gradient(#4865f4, #5671f5);
+}
+
+.scissors {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ec9e0e), to(#eca922));
+  background: linear-gradient(#ec9e0e, #eca922);
+}
+
+.rock {
+  background: -webkit-gradient(linear, left top, left bottom, from(#dc2e4e), to(#dd405d));
+  background: linear-gradient(#dc2e4e, #dd405d);
+}
+
+.paper:hover,
+.scissors:hover,
+.rock:hover {
+  -webkit-box-shadow: 0px 0px 50px -4px #d9d9e0;
+  box-shadow: 0px 0px 50px -4px #d9d9e0;
 }
 /*# sourceMappingURL=main.css.map */

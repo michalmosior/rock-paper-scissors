@@ -65,14 +65,15 @@ body {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	gap: 25%;
+	gap: 10%;
 	justify-content: center;
 	height: 65vh;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-image: url('../img/bg-triangle.svg');
 	width: 100%;
-	padding: 10% 5% 10% 5%;
+	max-width: 550px;
+	padding: 10% 0 10% 0;
 	z-index: 0;
 }
 
@@ -85,9 +86,44 @@ body {
 	background-color: transparent;
 	color: #ddd;
 }
-.btn {
+.button {
 	border: none;
 	border-radius: 50%;
-	width: 6rem;
-	height: 6rem;
+	width: 6.5rem;
+	height: 6.5rem;
+	cursor: pointer;
+	transition: transform 0.5s;
+	&:hover {
+		transform: rotate(360deg) scale(1.05);
+	}
+}
+
+.paper,
+.scissors,
+.rock {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 9rem;
+	height: 9rem;
+	border-radius: 50%;
+	transition: box-shadow 0.3s;
+	cursor: pointer;
+}
+
+.paper {
+	background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+}
+.scissors {
+	background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+.rock {
+	background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+.paper:hover,
+.scissors:hover,
+.rock:hover {
+	-webkit-box-shadow: 0px 0px 50px -4px rgba(217, 217, 224, 1);
+	-moz-box-shadow: 0px 0px 50px -4px rgba(217, 217, 224, 1);
+	box-shadow: 0px 0px 50px -4px rgba(217, 217, 224, 1);
 }
