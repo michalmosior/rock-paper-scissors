@@ -5,10 +5,12 @@
 	font-family: 'Barlow Semi Condensed', sans-serif;
 }
 body {
+	position: relative;
 	background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 	background-repeat: no-repeat;
 	height: 100vh;
 	padding: 5%;
+	overflow: hidden;
 }
 .container {
 	display: flex;
@@ -77,7 +79,7 @@ body {
 	z-index: 0;
 }
 
-.rules {
+.rules-btn {
 	width: 30%;
 	text-transform: uppercase;
 	border: solid 2px rgb(96, 110, 133);
@@ -85,6 +87,12 @@ body {
 	padding: 0.5rem 1rem;
 	background-color: transparent;
 	color: #ddd;
+	transition: color 0.3s, border 0.3s;
+	cursor: pointer;
+	&:hover {
+		color: #fff;
+		border: solid 2px #fff;
+	}
 }
 .button {
 	border: none;
@@ -126,4 +134,42 @@ body {
 	-webkit-box-shadow: 0px 0px 50px -4px rgba(217, 217, 224, 1);
 	-moz-box-shadow: 0px 0px 50px -4px rgba(217, 217, 224, 1);
 	box-shadow: 0px 0px 50px -4px rgba(217, 217, 224, 1);
+}
+
+.rules {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #ddd;
+	padding: 10% 0 10% 0;
+	transform: translateY(-100vh);
+	transition: transform 0.3s;
+	&__title {
+		font-size: 3rem;
+		text-transform: uppercase;
+		color: rgb(76, 74, 74);
+	}
+	&__close-btn {
+		font-size: 2rem;
+		text-transform: uppercase;
+		padding: 0.5rem 1rem;
+		border: none;
+		border-radius: 10px;
+		background-color: rgb(76, 74, 74);
+		color: #ddd;
+		transition: background-color 0.3s;
+		&:hover {
+			background-color: rgb(116, 112, 112);
+		}
+	}
+}
+
+.active {
+	transform: translateY(0);
 }
