@@ -37,6 +37,8 @@ body {
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
   z-index: 3;
 }
 
@@ -61,8 +63,10 @@ body {
   border-radius: 25px;
   color: #ddd;
   text-transform: uppercase;
-  -webkit-transition: color 0.3s, border 0.3s;
-  transition: color 0.3s, border 0.3s;
+  -webkit-transition: color 0.3s, border 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+  transition: color 0.3s, border 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+  transition: color 0.3s, border 0.3s, opacity 0.3s, transform 0.3s;
+  transition: color 0.3s, border 0.3s, opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
   cursor: pointer;
 }
 
@@ -249,14 +253,35 @@ body {
   background: linear-gradient(#4865f4, #5671f5);
 }
 
+.paper__btn {
+  background-image: url("../img/icon-paper.svg");
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+}
+
 .scissors {
   background: -webkit-gradient(linear, left top, left bottom, from(#ec9e0e), to(#eca922));
   background: linear-gradient(#ec9e0e, #eca922);
 }
 
+.scissors__btn {
+  background-image: url("../img/icon-scissors.svg");
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+}
+
 .rock {
   background: -webkit-gradient(linear, left top, left bottom, from(#dc2e4e), to(#dd405d));
   background: linear-gradient(#dc2e4e, #dd405d);
+}
+
+.rock__btn {
+  background-image: url("../img/icon-rock.svg");
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
 }
 
 .paper:hover,
@@ -319,5 +344,30 @@ body {
 .active {
   -webkit-transform: translateY(0);
           transform: translateY(0);
+}
+
+.right {
+  -webkit-transform: scale(1.3) translateX(50%);
+          transform: scale(1.3) translateX(50%);
+}
+
+.left {
+  -webkit-transform: scale(1.3) translateX(-50%);
+          transform: scale(1.3) translateX(-50%);
+}
+
+.none {
+  -webkit-transform: scale(0) translateX(120%);
+          transform: scale(0) translateX(120%);
+}
+
+.none-left {
+  -webkit-transform: scale(0) translateX(-120%);
+          transform: scale(0) translateX(-120%);
+}
+
+.small {
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
 }
 /*# sourceMappingURL=main.css.map */
