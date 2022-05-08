@@ -181,7 +181,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 65vh;
+  height: 60vh;
   background-repeat: no-repeat;
   background-position: center center;
   background-image: url("../img/bg-triangle.svg");
@@ -366,8 +366,169 @@ body {
           transform: scale(0) translateX(-120%);
 }
 
+.weapon-choice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  width: 100%;
+}
+
 .small {
+  height: 50px;
   -webkit-transform: scale(0.5);
           transform: scale(0.5);
+  width: 100%;
+}
+
+.shadow {
+  -webkit-box-shadow: 0px 0px 50px -4px #d9d9e0;
+  box-shadow: 0px 0px 50px -4px #d9d9e0;
+}
+
+.cpu__container {
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  background-color: lime;
+  -webkit-box-shadow: 0px 0px 50px -4px #d9d9e0;
+  box-shadow: 0px 0px 50px -4px #d9d9e0;
+}
+
+.cpu__btn {
+  background-image: url("../img/icon-rock.svg");
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+  border: none;
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  -webkit-animation: randomImg infinite 1s;
+          animation: randomImg infinite 1s;
+  -webkit-transition: background-image 0.1s both;
+  transition: background-image 0.1s both;
+}
+
+.result {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #b55b5b;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-animation: zoom 0.3s 1 0.3s forwards;
+          animation: zoom 0.3s 1 0.3s forwards;
+}
+
+@-webkit-keyframes randomImg {
+  10% {
+    background-image: url("../img/icon-paper.svg");
+  }
+  20% {
+    background-image: url("../img/icon-scissors.svg");
+  }
+  30% {
+    background-image: url("../img/icon-rock.svg");
+  }
+  40% {
+    background-image: url("../img/icon-paper.svg");
+  }
+  50% {
+    background-image: url("../img/icon-scissors.svg");
+  }
+  60% {
+    background-image: url("../img/icon-rock.svg");
+  }
+  70% {
+    background-image: url("../img/icon-paper.svg");
+  }
+  80% {
+    background-image: url("../img/icon-scissors.svg");
+  }
+  90% {
+    background-image: url("../img/icon-rock.svg");
+  }
+  100% {
+    background-image: url("../img/icon-paper.svg");
+  }
+}
+
+@keyframes randomImg {
+  10% {
+    background-image: url("../img/icon-paper.svg");
+  }
+  20% {
+    background-image: url("../img/icon-scissors.svg");
+  }
+  30% {
+    background-image: url("../img/icon-rock.svg");
+  }
+  40% {
+    background-image: url("../img/icon-paper.svg");
+  }
+  50% {
+    background-image: url("../img/icon-scissors.svg");
+  }
+  60% {
+    background-image: url("../img/icon-rock.svg");
+  }
+  70% {
+    background-image: url("../img/icon-paper.svg");
+  }
+  80% {
+    background-image: url("../img/icon-scissors.svg");
+  }
+  90% {
+    background-image: url("../img/icon-rock.svg");
+  }
+  100% {
+    background-image: url("../img/icon-paper.svg");
+  }
+}
+
+@-webkit-keyframes zoom {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes zoom {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 /*# sourceMappingURL=main.css.map */
