@@ -1,4 +1,5 @@
-const rulesBtn = document.querySelector('.rules-btn');
+const rulesBtn = document.querySelector('.buttons__rules');
+const nextRoundBtn = document.querySelector('.buttons__next');
 const rulesContainer = document.querySelector('.rules');
 const optionBtns = document.querySelectorAll('.option-container__btn');
 const optionContainer = document.querySelector('.option-container');
@@ -7,7 +8,10 @@ const human = document.querySelector('.human');
 const cpu = document.querySelector('.cpu');
 const weaponChoice = document.querySelector('.weapon-choice');
 const gameField = document.querySelector('.game-field');
+const scoreCounter = document.querySelector('.score-panel__score');
 let playerOneChoice;
+let playerOneScore = 0;
+let playerTwoScore = 0;
 
 const chooseEnemy = (e) => {
 	optionContainer.classList.add('started');
@@ -89,33 +93,44 @@ const showResult = () => {
 		playerOne.dataset.weapon === 'paper' &&
 		playerTwo.dataset.weapon === 'scissors'
 	) {
-		gameField.innerHTML = `<p class="result">Cpu win</p>`;
+		gameField.innerHTML = `<p class="result">cpu win</p>`;
+		playerTwoScore++;
 	} else if (
 		playerOne.dataset.weapon === 'paper' &&
 		playerTwo.dataset.weapon === 'rock'
 	) {
 		gameField.innerHTML = `<p class="result">you win</p>`;
+		playerOneScore++;
 	} else if (
 		playerOne.dataset.weapon === 'scissors' &&
 		playerTwo.dataset.weapon === 'paper'
 	) {
 		gameField.innerHTML = `<p class="result">you win</p>`;
+		playerOneScore++;
 	} else if (
 		playerOne.dataset.weapon === 'scissors' &&
 		playerTwo.dataset.weapon === 'rock'
 	) {
 		gameField.innerHTML = `<p class="result">cpu win</p>`;
+		playerTwoScore++;
 	} else if (
 		playerOne.dataset.weapon === 'rock' &&
 		playerTwo.dataset.weapon === 'paper'
 	) {
 		gameField.innerHTML = `<p class="result">cpu win</p>`;
+		playerTwoScore++;
 	} else if (
 		playerOne.dataset.weapon === 'rock' &&
 		playerTwo.dataset.weapon === 'scissors'
 	) {
 		gameField.innerHTML = `<p class="result">you win</p>`;
+		playerOneScore++;
 	}
+	scoreCounter.innerHTML = `${playerOneScore}:${playerTwoScore}`;
+	nextRoundBtn.addEventListener('click', nextRound);
+};
+const nextRound = () => {
+	
 };
 const showRules = () => {
 	const closeBtn = document.querySelector('.rules__close-btn');

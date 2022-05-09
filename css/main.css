@@ -181,7 +181,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 60vh;
+  height: 55vh;
   background-repeat: no-repeat;
   background-position: center center;
   background-image: url("../img/bg-triangle.svg");
@@ -191,7 +191,20 @@ body {
   z-index: 0;
 }
 
-.rules-btn {
+.buttons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.buttons__rules, .buttons__next, .buttons__reset {
   width: 30%;
   text-transform: uppercase;
   border: solid 2px #606e85;
@@ -204,7 +217,7 @@ body {
   cursor: pointer;
 }
 
-.rules-btn:hover {
+.buttons__rules:hover, .buttons__next:hover, .buttons__reset:hover {
   color: #fff;
   border: solid 2px #fff;
 }

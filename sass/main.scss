@@ -109,7 +109,7 @@ body {
 	flex-wrap: wrap;
 	gap: 10%;
 	justify-content: center;
-	height: 60vh;
+	height: 55vh;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-image: url('../img/bg-triangle.svg');
@@ -118,22 +118,30 @@ body {
 	padding: 10% 0 10% 0;
 	z-index: 0;
 }
-
-.rules-btn {
-	width: 30%;
-	text-transform: uppercase;
-	border: solid 2px rgb(96, 110, 133);
-	border-radius: 10px;
-	padding: 0.5rem 1rem;
-	background-color: transparent;
-	color: #ddd;
-	transition: color 0.3s, border 0.3s;
-	cursor: pointer;
-	&:hover {
-		color: #fff;
-		border: solid 2px #fff;
+.buttons {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	&__rules,
+	&__next,
+	&__reset {
+		width: 30%;
+		text-transform: uppercase;
+		border: solid 2px rgb(96, 110, 133);
+		border-radius: 10px;
+		padding: 0.5rem 1rem;
+		background-color: transparent;
+		color: #ddd;
+		transition: color 0.3s, border 0.3s;
+		cursor: pointer;
+		&:hover {
+			color: #fff;
+			border: solid 2px #fff;
+		}
 	}
 }
+
 .button {
 	border: none;
 	border-radius: 50%;
