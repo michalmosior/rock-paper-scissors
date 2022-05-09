@@ -38,6 +38,17 @@ const createGameField = () => {
 	<button class="rock__btn button"></button>
 </div>`;
 	const gameButtons = document.querySelectorAll('.button');
+	const enemiesRound = () => {
+		if (cpu.classList.contains('choosen-option')) {
+			vsCpu();
+		} else if (
+			human.classList.contains('choosen-option') &&
+			cpu.classList.contains('none')
+		) {
+			vsHuman();
+		}
+	};
+
 	const weapon = (e) => {
 		weaponChoice.classList.add('small');
 		if (e.target === gameButtons[0]) {
@@ -79,14 +90,17 @@ const createGameField = () => {
 			setTimeout(stopDraw, 1500);
 		}
 	};
-	const delay = () => {
-		setTimeout(vsCpu, 800);
+	const vsHuman = (e) => {
+		playerTwoArr = [];
+		if (weaponChoice.innerHTML != '') {
+			gameButtons.forEach((el) => {
+				el.addEventListener('click', weapon);
+			});
+		}
 	};
-	if (cpu.classList.contains('choosen-option')) {
-		vsCpu();
-	} else if (human.classList.contains('choosen-option')) {
-		console.log('object');
-	}
+	const delay = () => {
+		setTimeout(enemiesRound, 800);
+	};
 	gameButtons.forEach((el) => {
 		el.addEventListener('click', weapon);
 	});
@@ -94,7 +108,6 @@ const createGameField = () => {
 		el.addEventListener('click', delay);
 	});
 };
-
 const showResult = () => {
 	const playerOne = document.querySelector('.player-one');
 	const playerTwo = document.querySelector('.player-two');
