@@ -3,7 +3,6 @@ const nextRoundBtn = document.querySelector('.buttons__next');
 const rulesContainer = document.querySelector('.rules');
 const optionBtns = document.querySelectorAll('.option-container__btn');
 const optionContainer = document.querySelector('.option-container');
-const gameButtons = document.querySelectorAll('.button');
 const human = document.querySelector('.human');
 const cpu = document.querySelector('.cpu');
 const weaponChoice = document.querySelector('.weapon-choice');
@@ -15,7 +14,7 @@ let playerTwoScore = 0;
 
 const chooseEnemy = (e) => {
 	optionContainer.classList.add('started');
-
+	createGameField();
 	e.target.classList.add('choosen-option');
 	if (e.target.matches('span')) {
 		e.target.parentElement.classList.add('choosen-option');
@@ -26,11 +25,19 @@ const chooseEnemy = (e) => {
 	} else if (cpu.classList.contains('choosen-option')) {
 		cpu.classList.add('left');
 		human.classList.add('none-left');
-		vsCpu();
 	}
 };
-
-const weaponSelection = () => {
+const createGameField = () => {
+	gameField.innerHTML = `<div class="paper">
+	<button class="paper__btn button"></button>
+</div>
+<div class="scissors">
+	<button class="scissors__btn button"></button>
+</div>
+<div class="rock">
+	<button class="rock__btn button"></button>
+</div>`;
+	const gameButtons = document.querySelectorAll('.button');
 	const weapon = (e) => {
 		weaponChoice.classList.add('small');
 		if (e.target === gameButtons[0]) {
@@ -47,24 +54,19 @@ const weaponSelection = () => {
 		</div>`;
 		}
 	};
-	gameButtons.forEach((el) => {
-		el.addEventListener('click', weapon);
-	});
-};
-const vsCpu = () => {
-	weaponSelection();
-	cpuArr = [
-		`<div class="paper shadow player-two" data-weapon="paper">
-	<button class="paper__btn button"></button>
-</div>`,
-		`<div class="scissors shadow player-two" data-weapon="scissors">
-<button class="scissors__btn button"></button>
-</div>`,
-		`<div class="rock shadow player-two" data-weapon="rock">
-<button class="rock__btn button"></button>
-</div>`,
-	];
-	const changeGameField = () => {
+
+	const vsCpu = () => {
+		cpuArr = [
+			`<div class="paper shadow player-two" data-weapon="paper">
+		<button class="paper__btn button"></button>
+	</div>`,
+			`<div class="scissors shadow player-two" data-weapon="scissors">
+	<button class="scissors__btn button"></button>
+	</div>`,
+			`<div class="rock shadow player-two" data-weapon="rock">
+	<button class="rock__btn button"></button>
+	</div>`,
+		];
 		if (weaponChoice.innerHTML !== '') {
 			gameField.innerHTML = `<div class="cpu__container">
 			<button class="cpu__btn"></button></div>`;
@@ -78,12 +80,21 @@ const vsCpu = () => {
 		}
 	};
 	const delay = () => {
-		setTimeout(changeGameField, 800);
+		setTimeout(vsCpu, 800);
 	};
+	if (cpu.classList.contains('choosen-option')) {
+		vsCpu();
+	} else if (human.classList.contains('choosen-option')) {
+		console.log('object');
+	}
+	gameButtons.forEach((el) => {
+		el.addEventListener('click', weapon);
+	});
 	gameButtons.forEach((el) => {
 		el.addEventListener('click', delay);
 	});
 };
+
 const showResult = () => {
 	const playerOne = document.querySelector('.player-one');
 	const playerTwo = document.querySelector('.player-two');
@@ -130,7 +141,8 @@ const showResult = () => {
 	nextRoundBtn.addEventListener('click', nextRound);
 };
 const nextRound = () => {
-	
+	weaponChoice.innerHTML = '';
+	createGameField();
 };
 const showRules = () => {
 	const closeBtn = document.querySelector('.rules__close-btn');
