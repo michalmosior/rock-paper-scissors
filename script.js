@@ -23,6 +23,26 @@ const playersWeapon = [
 let playerOneScore = 0;
 let playerTwoScore = 0;
 
+const sendNames = () => {
+	const inputsField = document.createElement('div');
+	const inputPlayerOne = document.createElement('input');
+	const inputPlayerTwo = document.createElement('input');
+	const enterBtn = document.createElement('button');
+	inputsField.classList.add('inputs__field');
+	inputPlayerOne.classList.add('inputs__name');
+	inputPlayerOne.classList.add('name-one');
+	inputPlayerTwo.classList.add('inputs__name');
+	inputPlayerTwo.classList.add('name-two');
+	enterBtn.classList.add('buttons__enter');
+	enterBtn.textContent = 'start';
+	document.body.append(inputsField);
+	inputsField.append(inputPlayerOne, inputPlayerTwo, enterBtn);
+	const hideNames = () => {
+		inputsField.classList.add('hide');
+	};
+	enterBtn.addEventListener('click', hideNames);
+};
+
 const chooseEnemy = (e) => {
 	optionContainer.classList.add('started');
 	createGameField();
@@ -33,9 +53,14 @@ const chooseEnemy = (e) => {
 	if (human.classList.contains('choosen-option')) {
 		human.classList.add('right');
 		cpu.classList.add('none');
+		sendNames();
 	} else if (cpu.classList.contains('choosen-option')) {
 		cpu.classList.add('left');
 		human.classList.add('none-left');
+		sendNames();
+		const inputPlayerTwo = document.querySelector('.name-two');
+		inputPlayerTwo.style.display = 'none';
+		inputPlayerTwo.value = 'cpu';
 	}
 };
 const createGameField = () => {
@@ -98,7 +123,6 @@ const createGameField = () => {
 	const vsHuman = () => {
 		weaponsArr = [];
 		weaponsArr.push(weaponChoice.innerHTML);
-		console.log(weaponsArr);
 		gameButtons.forEach((el) => {
 			el.addEventListener('click', function (e) {
 				weapon(e);
@@ -123,6 +147,8 @@ const createGameField = () => {
 	});
 };
 const showResult = () => {
+	const playerOneName = document.querySelector('.name-one').value;
+	let playerTwoName = document.querySelector('.name-two').value;
 	const playerOne = document.querySelector('.player-one');
 	const playerTwo = document.querySelector('.player-two');
 	if (playerOne.dataset.weapon === playerTwo.dataset.weapon) {
@@ -131,37 +157,37 @@ const showResult = () => {
 		playerOne.dataset.weapon === 'paper' &&
 		playerTwo.dataset.weapon === 'scissors'
 	) {
-		gameField.innerHTML = `<p class="result">cpu win</p>`;
+		gameField.innerHTML = `<p class="result">${playerTwoName} win</p>`;
 		playerTwoScore++;
 	} else if (
 		playerOne.dataset.weapon === 'paper' &&
 		playerTwo.dataset.weapon === 'rock'
 	) {
-		gameField.innerHTML = `<p class="result">you win</p>`;
+		gameField.innerHTML = `<p class="result">${playerOneName} win</p>`;
 		playerOneScore++;
 	} else if (
 		playerOne.dataset.weapon === 'scissors' &&
 		playerTwo.dataset.weapon === 'paper'
 	) {
-		gameField.innerHTML = `<p class="result">you win</p>`;
+		gameField.innerHTML = `<p class="result">${playerOneName} win</p>`;
 		playerOneScore++;
 	} else if (
 		playerOne.dataset.weapon === 'scissors' &&
 		playerTwo.dataset.weapon === 'rock'
 	) {
-		gameField.innerHTML = `<p class="result">cpu win</p>`;
+		gameField.innerHTML = `<p class="result">${playerTwoName}  win</p>`;
 		playerTwoScore++;
 	} else if (
 		playerOne.dataset.weapon === 'rock' &&
 		playerTwo.dataset.weapon === 'paper'
 	) {
-		gameField.innerHTML = `<p class="result">cpu win</p>`;
+		gameField.innerHTML = `<p class="result">${playerTwoName}  win</p>`;
 		playerTwoScore++;
 	} else if (
 		playerOne.dataset.weapon === 'rock' &&
 		playerTwo.dataset.weapon === 'scissors'
 	) {
-		gameField.innerHTML = `<p class="result">you win</p>`;
+		gameField.innerHTML = `<p class="result">${playerOneName} win</p>`;
 		playerOneScore++;
 	}
 	scoreCounter.innerHTML = `${playerOneScore}:${playerTwoScore}`;
