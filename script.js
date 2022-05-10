@@ -8,7 +8,18 @@ const cpu = document.querySelector('.cpu');
 const weaponChoice = document.querySelector('.weapon-choice');
 const gameField = document.querySelector('.game-field');
 const scoreCounter = document.querySelector('.score-panel__score');
-let playerOneChoice;
+const playersWeapon = [
+	`<div class="paper shadow player-one weapon" data-weapon="paper">
+<button class="paper__btn button"></button>
+</div>`,
+	`<div class="scissors shadow player-one weapon" data-weapon="scissors">
+<button class="scissors__btn button"></button>
+</div>`,
+	`<div class="rock shadow player-one weapon" data-weapon="rock">
+<button class="rock__btn button"></button>
+</div>`,
+];
+
 let playerOneScore = 0;
 let playerTwoScore = 0;
 
@@ -28,13 +39,13 @@ const chooseEnemy = (e) => {
 	}
 };
 const createGameField = () => {
-	gameField.innerHTML = `<div class="paper">
+	gameField.innerHTML = `<div class="paper" data-weapon="paper">
 	<button class="paper__btn button"></button>
 </div>
-<div class="scissors">
+<div class="scissors" data-weapon="scissors">
 	<button class="scissors__btn button"></button>
 </div>
-<div class="rock">
+<div class="rock" data-weapon="rock">
 	<button class="rock__btn button"></button>
 </div>`;
 	const gameButtons = document.querySelectorAll('.button');
@@ -52,17 +63,11 @@ const createGameField = () => {
 	const weapon = (e) => {
 		weaponChoice.classList.add('small');
 		if (e.target === gameButtons[0]) {
-			weaponChoice.innerHTML = `<div class="paper shadow player-one" data-weapon="paper">
-			<button class="paper__btn button"></button>
-		</div>`;
+			weaponChoice.innerHTML = playersWeapon[0];
 		} else if (e.target === gameButtons[1]) {
-			weaponChoice.innerHTML = `<div class="scissors shadow player-one" data-weapon="scissors">
-			<button class="scissors__btn button"></button>
-		</div>`;
+			weaponChoice.innerHTML = playersWeapon[1];
 		} else if (e.target === gameButtons[2]) {
-			weaponChoice.innerHTML = `<div class="rock shadow player-one" data-weapon="rock">
-			<button class="rock__btn button"></button>
-		</div>`;
+			weaponChoice.innerHTML = playersWeapon[2];
 		}
 	};
 
@@ -90,13 +95,22 @@ const createGameField = () => {
 			setTimeout(stopDraw, 1500);
 		}
 	};
-	const vsHuman = (e) => {
-		playerTwoArr = [];
-		if (weaponChoice.innerHTML != '') {
-			gameButtons.forEach((el) => {
-				el.addEventListener('click', weapon);
+	const vsHuman = () => {
+		weaponsArr = [];
+		weaponsArr.push(weaponChoice.innerHTML);
+		console.log(weaponsArr);
+		gameButtons.forEach((el) => {
+			el.addEventListener('click', function (e) {
+				weapon(e);
+				weaponChoice.innerHTML = weaponsArr[0] + weaponChoice.innerHTML;
+				const weapons = document.querySelectorAll('.weapon');
+				if (weapons[1].classList.contains('player-one')) {
+					weapons[1].classList.remove('player-one');
+					weapons[1].classList.add('player-two');
+				}
+				setTimeout(500, showResult());
 			});
-		}
+		});
 	};
 	const delay = () => {
 		setTimeout(enemiesRound, 800);
