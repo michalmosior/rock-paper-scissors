@@ -24,6 +24,7 @@ let playerOneScore = 0;
 let playerTwoScore = 0;
 
 const sendNames = () => {
+	const container = document.querySelector('.container');
 	const inputsField = document.createElement('div');
 	const inputPlayerOne = document.createElement('input');
 	const inputPlayerTwo = document.createElement('input');
@@ -31,11 +32,13 @@ const sendNames = () => {
 	inputsField.classList.add('inputs__field');
 	inputPlayerOne.classList.add('inputs__name');
 	inputPlayerOne.classList.add('name-one');
+	inputPlayerOne.placeholder = 'Name...';
 	inputPlayerTwo.classList.add('inputs__name');
 	inputPlayerTwo.classList.add('name-two');
+	inputPlayerTwo.placeholder = 'Name...';
 	enterBtn.classList.add('buttons__enter');
 	enterBtn.textContent = 'start';
-	document.body.append(inputsField);
+	container.append(inputsField);
 	inputsField.append(inputPlayerOne, inputPlayerTwo, enterBtn);
 	const hideNames = () => {
 		inputsField.classList.add('hide');
@@ -70,7 +73,7 @@ const createGameField = () => {
 <div class="scissors" data-weapon="scissors">
 	<button class="scissors__btn button"></button>
 </div>
-<div class="rock" data-weapon="rock">
+<div class="rock pt25" data-weapon="rock">
 	<button class="rock__btn button"></button>
 </div>`;
 	const gameButtons = document.querySelectorAll('.button');
