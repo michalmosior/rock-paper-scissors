@@ -56,7 +56,6 @@ const chooseEnemy = (e) => {
 	if (human.classList.contains('choosen-option')) {
 		human.classList.add('right');
 		cpu.classList.add('none');
-
 		sendNames();
 	} else if (cpu.classList.contains('choosen-option')) {
 		cpu.classList.add('left');
@@ -156,6 +155,7 @@ const showResult = () => {
 	let playerTwoName = document.querySelector('.name-two').value;
 	const playerOne = document.querySelector('.player-one');
 	const playerTwo = document.querySelector('.player-two');
+	playerOne.classList.add('no-before');
 	if (playerOne.dataset.weapon === playerTwo.dataset.weapon) {
 		gameField.innerHTML = `<p class="result">draw</p>`;
 	} else if (
