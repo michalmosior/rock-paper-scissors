@@ -56,8 +56,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 150px;
-  height: 150px;
+  width: 40%;
+  padding: 5% 0 5% 0;
   background-color: transparent;
   border: solid 3px #606e85;
   border-radius: 25px;
@@ -611,6 +611,27 @@ body {
   to {
     -webkit-transform: scale(1);
             transform: scale(1);
+  }
+}
+
+@-webkit-keyframes displayNone {
+  from {
+    display: -webkit-box;
+    display: flex;
+  }
+  to {
+    display: none;
+  }
+}
+
+@keyframes displayNone {
+  from {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  to {
+    display: none;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -56,6 +56,7 @@ const chooseEnemy = (e) => {
 	if (human.classList.contains('choosen-option')) {
 		human.classList.add('right');
 		cpu.classList.add('none');
+
 		sendNames();
 	} else if (cpu.classList.contains('choosen-option')) {
 		cpu.classList.add('left');
@@ -66,6 +67,7 @@ const chooseEnemy = (e) => {
 		inputPlayerTwo.value = 'cpu';
 	}
 };
+
 const createGameField = () => {
 	gameField.innerHTML = `<div class="paper" data-weapon="paper">
 	<button class="paper__btn button"></button>
